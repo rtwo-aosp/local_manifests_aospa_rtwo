@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote name="aospa" fetch="https://github.com/rtwo-aosp" />
-  <remote name="17.0" fetch="https://github.com/ctOS-rtwo" />
+  <remote name="myfork" fetch="https://github.com/rtwo-aosp" />
+  <remote name="ctos" fetch="https://github.com/ctOS-rtwo" />
 
   <project path="device/motorola/rtwo" name="android_device_motorola_rtwo" remote="myfork" revision="aospa" />
   <project path="device/motorola/sm8550-common" name="android_device_motorola_sm8550-common" remote="myfork" revision="aospa" />
