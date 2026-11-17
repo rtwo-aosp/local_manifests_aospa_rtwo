@@ -1,0 +1,278 @@
+diff --git a/Android.bp b/Android.bp
+index c745b46..3e2b505 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -5,13 +5,7 @@
+ soong_namespace {
+     imports: [
+         "device/motorola/sm8550-common",
+-        "hardware/qcom-caf/sm8550",
+-        "hardware/qcom-caf/wlan",
+         "hardware/motorola",
+-        "vendor/qcom/opensource/commonsys-intf/display",
+-        "vendor/qcom/opensource/commonsys/display",
+-        "vendor/qcom/opensource/dataservices",
+-        "vendor/qcom/opensource/display",
+     ],
+ }
+ 
+@@ -15790,33 +15784,6 @@ cc_prebuilt_library_shared {
+     soc_specific: true,
+ }
+ 
+-cc_prebuilt_library_shared {
+-    name: "vendor.qti.hardware.fm@1.0",
+-    owner: "motorola",
+-    strip: {
+-        none: true,
+-    },
+-    target: {
+-        android_arm64: {
+-            srcs: [
+-                "proprietary/vendor/lib64/vendor.qti.hardware.fm@1.0.so",
+-            ],
+-            shared_libs: [
+-                "libhidlbase",
+-                "liblog",
+-                "libutils",
+-                "libcutils",
+-                "libc++",
+-                "libc",
+-                "libm",
+-                "libdl",
+-            ],
+-        },
+-    },
+-    compile_multilib: "64",
+-    prefer: true,
+-    soc_specific: true,
+-}
+ 
+ cc_prebuilt_library_shared {
+     name: "vendor.qti.hardware.mwqemadapter@1.0",
+@@ -24680,3 +24647,199 @@ filegroup {
+         "proprietary/vendor/etc/qcril_database/upgrade/other/6_version_change_property_table_qcrilnr.sql",
+     ],
+ }
++
++cc_prebuilt_library_shared {
++    name: "liblx-osal",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/liblx-osal.so",
++            ],
++            shared_libs: [
++                "liblog",
++                "libdiag",
++                "libion",
++                "libpdmapper",
++                "libpdnotifier",
++                "libcutils",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
++
++cc_prebuilt_library_shared {
++    name: "libar-gsl",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/libar-gsl.so",
++            ],
++            shared_libs: [
++                "liblx-osal",
++                "libar-acdb",
++                "liblx-ar_util",
++                "libar-gpr",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
++
++cc_prebuilt_library_shared {
++    name: "libats",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/libats.so",
++            ],
++            shared_libs: [
++                "liblx-osal",
++                "libutils",
++                "libcutils",
++                "libdiag",
++                "libar-gsl",
++                "libar-acdb",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
++
++cc_prebuilt_library_shared {
++    name: "libar-acdb",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/libar-acdb.so",
++            ],
++            shared_libs: [
++                "liblx-osal",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
++
++cc_prebuilt_library_shared {
++    name: "liblx-ar_util",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/liblx-ar_util.so",
++            ],
++            shared_libs: [
++                "liblog",
++                "liblx-osal",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
++
++cc_prebuilt_library_shared {
++    name: "libar-gpr",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/libar-gpr.so",
++            ],
++            shared_libs: [
++                "liblx-osal",
++                "libcutils",
++                "liblog",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
++
++cc_prebuilt_library_shared {
++    name: "libagmclient",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/libagmclient.so",
++            ],
++            shared_libs: [
++                "libhidlbase",
++                "libutils",
++                "liblog",
++                "libcutils",
++                "libhardware",
++                "libbase",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
+diff --git a/sm8550-common-vendor.mk b/sm8550-common-vendor.mk
+index 8595fcb..cdc3cc4 100644
+--- a/sm8550-common-vendor.mk
++++ b/sm8550-common-vendor.mk
+@@ -347,6 +347,13 @@ PRODUCT_PACKAGES += \
+     libadsprpc \
+     libagm \
+     libar-pal \
++    libagmclient \
++    liblx-osal \
++    libar-gsl \
++    libats \
++    libar-acdb \
++    liblx-ar_util \
++    libar-gpr \
+     libaualgo_ainr_component \
+     libaualgo_ainr_wrapper \
+     libaualgo_arp_component \
+@@ -759,7 +766,6 @@ PRODUCT_PACKAGES += \
+     vendor.qti.hardware.dpmservice@1.0_vendor \
+     vendor.qti.hardware.dpmservice@1.1_vendor \
+     vendor.qti.hardware.dsp@1.0 \
+-    vendor.qti.hardware.fm@1.0 \
+     vendor.qti.hardware.mwqemadapter@1.0 \
+     vendor.qti.hardware.pal@1.0-impl \
+     vendor.qti.hardware.qccsyshal@1.0_vendor \
