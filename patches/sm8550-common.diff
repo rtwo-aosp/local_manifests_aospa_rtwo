@@ -1,5 +1,5 @@
 diff --git a/Android.bp b/Android.bp
-index c745b46..3e2b505 100644
+index c745b46..fa4ed81 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -5,13 +5,7 @@
@@ -50,7 +50,7 @@ index c745b46..3e2b505 100644
  
  cc_prebuilt_library_shared {
      name: "vendor.qti.hardware.mwqemadapter@1.0",
-@@ -24680,3 +24647,199 @@ filegroup {
+@@ -24680,3 +24647,231 @@ filegroup {
          "proprietary/vendor/etc/qcril_database/upgrade/other/6_version_change_property_table_qcrilnr.sql",
      ],
  }
@@ -250,14 +250,47 @@ index c745b46..3e2b505 100644
 +    prefer: true,
 +    soc_specific: true,
 +}
++
++cc_prebuilt_library_shared {
++    name: "vendor.qti.hardware.AGMIPC@1.0-impl",
++    owner: "motorola",
++    strip: {
++        none: true,
++    },
++    target: {
++        android_arm64: {
++            srcs: [
++                "proprietary/vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so",
++            ],
++            shared_libs: [
++                "libhidlbase",
++                "libutils",
++                "liblog",
++                "libcutils",
++                "libhardware",
++                "libbase",
++                "libar-gsl",
++                "libagm",
++                "libc++",
++                "libc",
++                "libm",
++                "libdl",
++            ],
++        },
++    },
++    compile_multilib: "64",
++    prefer: true,
++    soc_specific: true,
++}
 diff --git a/sm8550-common-vendor.mk b/sm8550-common-vendor.mk
-index 8595fcb..cdc3cc4 100644
+index 8595fcb..fbd74d3 100644
 --- a/sm8550-common-vendor.mk
 +++ b/sm8550-common-vendor.mk
-@@ -347,6 +347,13 @@ PRODUCT_PACKAGES += \
+@@ -347,6 +347,14 @@ PRODUCT_PACKAGES += \
      libadsprpc \
      libagm \
      libar-pal \
++    vendor.qti.hardware.AGMIPC@1.0-impl \
 +    libagmclient \
 +    liblx-osal \
 +    libar-gsl \
@@ -268,7 +301,7 @@ index 8595fcb..cdc3cc4 100644
      libaualgo_ainr_component \
      libaualgo_ainr_wrapper \
      libaualgo_arp_component \
-@@ -759,7 +766,6 @@ PRODUCT_PACKAGES += \
+@@ -759,7 +767,6 @@ PRODUCT_PACKAGES += \
      vendor.qti.hardware.dpmservice@1.0_vendor \
      vendor.qti.hardware.dpmservice@1.1_vendor \
      vendor.qti.hardware.dsp@1.0 \
